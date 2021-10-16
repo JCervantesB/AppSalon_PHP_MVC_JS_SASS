@@ -1,0 +1,19 @@
+{
+    "name": "usuario/app-salon_php_mvc_js_sass",
+    "description": "PHP, MVC, SQL, Gulp, Sass",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    },
+    "authors": [
+        {
+            "name": "JCervantesB",
+            "email": "pc3dtepic@gmail.com"
+        }
+    ],
+    "require": {}
+}
