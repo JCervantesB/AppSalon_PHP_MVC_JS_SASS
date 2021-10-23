@@ -25,8 +25,8 @@ class Usuario extends ActiveRecord {
         $this->email = $arg['email'] ?? '';
         $this->password = $arg['password'] ?? '';
         $this->telefono = $arg['telefono'] ?? '';
-        $this->admin = $arg['admin'] ?? null;
-        $this->confirmado = $arg['confirmado'] ?? null;
+        $this->admin = $arg['admin'] ?? 0;
+        $this->confirmado = $arg['confirmado'] ?? 0;
         $this->token = $arg['token'] ?? '';
     }
 
@@ -58,7 +58,21 @@ class Usuario extends ActiveRecord {
     //Revisa si el usuario ya existe
     public function existeUsuario() {
         $query = " SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1";
+        $resultado = self::$db->query($query);
 
-        debuguear($query);
+        if($resultado->num_rows) {
+            self::$alertas['error'][] = 'El usuario ya esta registrado';
+        }
+        return $resultado;
     }
+
+    public function hashPassword() {
+        $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+    }
+
+    public function crearToken() {
+        $this->token = uniqid();
+    }
+
+    
 }
