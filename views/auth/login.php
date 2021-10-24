@@ -1,9 +1,6 @@
 <h1 class="nombre-pagina">Login</h1>
 <p class="descripcion-pagina">Inicia sesión con tus datos</p>
 <?php
-
-use Classes\Email;
-
 include_once __DIR__ . "/../templates/alertas.php"
 ?>
 <form action="/" class="formulario" method="POST">
