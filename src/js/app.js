@@ -258,17 +258,14 @@ function mostrarResumen() {
         
         resumen.appendChild(contenedorServicio);
     })
-    // Heading para cita en resumen
-    const headingServicios = document.createElement('H3');
-    headingServicios.textContent = 'Resumen de Cita';
-    resumen.appendChild(headingServicios);
+    
     
     const nombreCliente = document.createElement('P');
     nombreCliente.innerHTML = `<span>Nombre:</span> ${nombre}`;
     const fechaCita = document.createElement('P');
     fechaCita.innerHTML = `<span>Fecha:</span> ${fecha}`;
     const horaCita = document.createElement('P');
-    horaCita.innerHTML = `<span>Hora:</span> ${hora} Horas`;
+    horaCita.innerHTML = `<span>Hora:</span> ${hora}`;
 
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
