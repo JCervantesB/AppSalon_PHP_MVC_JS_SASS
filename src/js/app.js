@@ -3,6 +3,7 @@ let pasoInicial = 1;
 let pasoFinal = 3;
 
 const cita = {
+    id: '',
     nombre: '',
     fecha: '',
     hora: '',
@@ -22,6 +23,7 @@ function iniciarApp() {
 
     consultarAPI(); // Consulta el API del backend PHP
 
+    idCliente(); // Obtiene el id del Cliente desde la Session
     nombreCliente(); // Añade el nombre del cliente al obj de cita
     seleccionarFecha(); // Añade la fecha de la cita en el obj
     seleccionarHora(); // Añade la hora de la cita en el obj
@@ -160,9 +162,11 @@ function seleccionarServicio(servicio) {
     }
 }
 
+function idCliente() {
+    cita.id = document.querySelector('#id').value;
+}
 function nombreCliente() {
     const nombre = document.querySelector('#nombre').value;
-
     cita.nombre = nombre;
 }
 
@@ -288,6 +292,46 @@ function mostrarResumen() {
     resumen.appendChild(botonReservar);
 }
 
-function reservarCita() {
-    console.log('Reservando cita...');
+async function reservarCita() {
+    const {id, fecha, hora, servicios} = cita;
+    const idServicios = servicios.map(servicio => servicio.id);
+    const datos = new FormData();
+    
+    datos.append('usuarioId', id)
+    datos.append('fecha', fecha)
+    datos.append('hora', hora)
+    datos.append('servicios', idServicios)
+
+    try {
+        // Peticion hacia la API
+        const url = 'http://localhost:3000/api/citas';
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body: datos
+        });
+    
+        const resultado = await respuesta.json();
+    
+        if(resultado.resultado) {
+            swal({
+                title: "Cita Creada",
+                text: "¡Tu cita fue creada correctamente!",
+                icon: "success",
+                button: "OK!",
+              }).then( () => {
+                  setTimeout(() => {
+                      window.location.reload();
+                  }, 3000);
+            })
+        }        
+    } catch (error) {
+        swal({
+            title: "¡Oops!",
+            text: "¡Hubo un error al guardar la cita!",
+            icon: "error",
+          });
+    }
+
+
+    //console.log([...datos]);
 }
