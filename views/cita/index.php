@@ -1,7 +1,11 @@
 <h1 class="nombre-pagina">Crear Nueva Cita</h1>
 <p class="descripcion-pagina">Elige tus servicios y coloca tus datos</p>
 
-<div class="app">
+<?php
+    include_once __DIR__ . '/../templates/barra.php';
+?>
+
+<div class="app" id="app">
     <div class="tabs">
         <button type="button" data-paso="1">Servicios</button>
         <button type="button" data-paso="2">Informacion Cita</button>
@@ -64,7 +68,7 @@
 
 <?php
     $script = "
-        <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+        <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script src='build/js/app.js'></script>
     ";
 ?>

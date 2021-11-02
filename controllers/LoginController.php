@@ -31,6 +31,7 @@ class LoginController {
                         $_SESSION['id'] = $usuario->id;
                         $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
                         $_SESSION['email'] = $usuario->email;
+                        $_SESSION['inicial'] = substr($usuario->nombre, 0, 1);
                         $_SESSION['login'] = true;
 
                         // Redireccionamiento
@@ -59,7 +60,9 @@ class LoginController {
     }
 
     public static function logout() {
-        echo 'Desde Logout';
+        
+        $_SESSION = [];
+        header('Location: /');
     }
 
     public static function olvide(Router $router) {

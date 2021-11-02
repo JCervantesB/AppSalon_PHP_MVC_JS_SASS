@@ -291,16 +291,28 @@ function mostrarResumen() {
     resumen.appendChild(horaCita);
     resumen.appendChild(botonReservar);
 }
+// Creando la configuracion de sweetalert2
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
 
 async function reservarCita() {
     const {id, fecha, hora, servicios} = cita;
     const idServicios = servicios.map(servicio => servicio.id);
     const datos = new FormData();
     
-    datos.append('usuarioId', id)
-    datos.append('fecha', fecha)
-    datos.append('hora', hora)
-    datos.append('servicios', idServicios)
+    datos.append('usuarioId', id);
+    datos.append('fecha', fecha);
+    datos.append('hora', hora);
+    datos.append('servicios', idServicios);
 
     try {
         // Peticion hacia la API
@@ -311,27 +323,25 @@ async function reservarCita() {
         });
     
         const resultado = await respuesta.json();
-    
-        if(resultado.resultado) {
-            swal({
-                title: "Cita Creada",
-                text: "¡Tu cita fue creada correctamente!",
-                icon: "success",
-                button: "OK!",
-              }).then( () => {
-                  setTimeout(() => {
-                      window.location.reload();
-                  }, 3000);
-            })
-        }        
+        console.log(resultado.resultado);
+
+        exito();       
+
     } catch (error) {
-        swal({
-            title: "¡Oops!",
-            text: "¡Hubo un error al guardar la cita!",
-            icon: "error",
-          });
+        Toast.fire({
+            icon: 'error',
+            title: 'Oops! Ocurrio un error al guardar la cita.'
+          })
     }
-
-
+    
     //console.log([...datos]);
+}
+function exito() {
+           
+        Toast.fire({
+        icon: 'success',
+        title: 'La cita fue creada correctamente.'
+        }).then(()=> {
+            window.location.reload();
+        })
 }
