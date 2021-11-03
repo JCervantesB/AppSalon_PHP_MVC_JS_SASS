@@ -21,8 +21,19 @@
         color: v.$blanco;
     }
 }
+.servicios {
+    @extend .citas;
+
+    .acciones {
+        margin: 0;
+    }
+    .boton,
+    .boton-eliminar {
+        margin: 0;
+    }
+}
 
 label {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
     font-weight: v.$bold;
 }
