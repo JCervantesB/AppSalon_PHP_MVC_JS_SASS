@@ -1,2 +1,11 @@
 /vendor/
 /node_modules/
+/DataBase/
+/src/
+.env
+appsalon.sql
+gulpfile.js
+package.json
+package-lock.json
+.DS_Store
+
