@@ -31,19 +31,19 @@ CREATE TABLE IF NOT EXISTS `citas` (
 -- Volcando datos para la tabla appsalon.citas: ~13 rows (aproximadamente)
 /*!40000 ALTER TABLE `citas` DISABLE KEYS */;
 INSERT INTO `citas` (`id`, `fecha`, `hora`, `usuarioId`) VALUES
-	(11, '2021-11-03', '16:20:00', 3),
-	(12, '2021-11-03', '16:20:00', 3),
-	(13, '2021-11-11', '16:23:00', 3),
-	(14, '2021-11-25', '16:31:00', 3),
-	(15, '2021-11-19', '16:33:00', 3),
-	(16, '2021-11-12', '16:47:00', 3),
-	(17, '2021-11-11', '16:54:00', 3),
-	(18, '2021-11-05', '16:55:00', 3),
-	(20, '2021-11-04', '16:00:00', 3),
-	(21, '2021-11-10', '16:00:00', 3),
-	(22, '2021-11-30', '17:01:00', 3),
-	(23, '2021-11-04', '17:05:00', 3),
-	(24, '2021-11-04', '17:05:00', 3);
+	(11, '2021-11-03', '16:20:00', 2),
+	(12, '2021-11-03', '16:20:00', 2),
+	(13, '2021-11-11', '16:23:00', 2),
+	(14, '2021-11-25', '16:31:00', 2),
+	(15, '2021-11-19', '16:33:00', 2),
+	(16, '2021-11-12', '16:47:00', 2),
+	(17, '2021-11-11', '16:54:00', 2),
+	(18, '2021-11-05', '16:55:00', 2),
+	(20, '2021-11-04', '16:00:00', 2),
+	(21, '2021-11-10', '16:00:00', 2),
+	(22, '2021-11-30', '17:01:00', 2),
+	(23, '2021-11-04', '17:05:00', 2),
+	(24, '2021-11-04', '17:05:00', 2);
 /*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 
 -- Volcando estructura para tabla appsalon.citasservicios
@@ -128,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcando datos para la tabla appsalon.usuarios: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `telefono`, `admin`, `confirmado`, `token`) VALUES
-	(2, 'Admin', 'SuperPoderoso', 'admin@solucioncb.com', '$2y$10$EawBZEv24gdDj4eDpn.BGeNU.3Oeo6.4kmM3tKDu.lrRdezCLeCSC', '123456789', 1, 1, ''),
-	(3, 'Julio', 'Cervantes', 'usuario@usuario.com', '$2y$10$50APHKi8Bt31vO6vWglO9OFsX3/xWMNvFrsugAp0wFZ7TtxeiO7WC', '0123456789', 0, 1, '');
+	(1, 'Admin', 'SuperPoderoso', 'admin@solucioncb.com', '$2y$10$EawBZEv24gdDj4eDpn.BGeNU.3Oeo6.4kmM3tKDu.lrRdezCLeCSC', '123456789', 1, 1, ''),
+	(2, 'Julio', 'Cervantes', 'usuario@usuario.com', '$2y$10$50APHKi8Bt31vO6vWglO9OFsX3/xWMNvFrsugAp0wFZ7TtxeiO7WC', '0123456789', 0, 1, '');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
