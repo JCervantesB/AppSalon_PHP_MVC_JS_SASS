@@ -18,7 +18,7 @@ class AdminController {
             header('Location: /404');
         }
 
-        debuguear($fecha);
+        //debuguear($fecha);
         
         // Consultar la base de datos
         $consulta = "SELECT citas.id, citas.hora, CONCAT( usuarios.nombre, ' ', usuarios.apellido) as cliente, ";
