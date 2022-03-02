@@ -9,7 +9,7 @@ use Model\Servicio;
 class APIController {
     public static function index() {
         $servicios = Servicio::all();
-        echo json_encode($servicios);
+        echo json_encode($servicios, JSON_UNESCAPED_UNICODE);
     }
     public static function guardar() {
 
@@ -29,14 +29,16 @@ class APIController {
             ];
 
             $citaServicio = new CitaServicio($args);
+            
             $citaServicio->guardar();
         }
         // Retornamos una respuesta
         $respuesta = [
             'servicios' => $resultado
         ];
+        
 
-        echo json_encode($respuesta);
+        echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     }
 
     public static function eliminar() {
