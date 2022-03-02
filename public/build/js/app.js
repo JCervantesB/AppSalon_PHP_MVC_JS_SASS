@@ -327,7 +327,7 @@ async function reservarCita() {
         const resultado = await respuesta.json();
         console.log(resultado.resultado);
 
-        //exito();       
+        exito();       
 
     } catch (error) {
         Toast.fire({
