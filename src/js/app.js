@@ -108,7 +108,11 @@ function paginaSiguiente() {
 
 async function consultarAPI() {
     try {
+<<<<<<< HEAD
         const url = 'https://mighty-fjord-77356.herokuapp.com/api/servicios';
+=======
+        const url = 'https://localhost/api/servicios';
+>>>>>>> e35cfa25c8b7b0d54a6117c14442fedba453d91f
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         mostrarServicios(servicios);
@@ -318,14 +322,18 @@ async function reservarCita() {
 
     try {
         // Peticion hacia la API
+<<<<<<< HEAD
         const url = 'https://mighty-fjord-77356.herokuapp.com/api/citas';
+=======
+        const url = 'https://localhost/api/citas';
+>>>>>>> e35cfa25c8b7b0d54a6117c14442fedba453d91f
         const respuesta = await fetch(url, {
             method: 'POST',
             body: datos
         });
     
         const resultado = await respuesta.json();
-        console.log(resultado.resultado);
+        //console.log(resultado);
 
         //exito();       
 
