@@ -30,6 +30,8 @@ class ServicioController {
             $alertas = $servicio->validar();
 
             if(empty($alertas)) {
+                debuguear($servicio);
+                
                 $servicio->guardar();
                 header('Location: /servicios');
             }

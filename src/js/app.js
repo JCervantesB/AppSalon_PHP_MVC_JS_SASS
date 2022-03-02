@@ -108,7 +108,7 @@ function paginaSiguiente() {
 
 async function consultarAPI() {
     try {
-        const url = 'http://localhost:3000/api/servicios';
+        const url = 'https://mighty-fjord-77356.herokuapp.com/api/servicios';
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         mostrarServicios(servicios);
@@ -314,9 +314,11 @@ async function reservarCita() {
     datos.append('hora', hora);
     datos.append('servicios', idServicios);
 
+    console.log(datos);
+
     try {
         // Peticion hacia la API
-        const url = 'http://localhost:3000/api/citas';
+        const url = 'https://mighty-fjord-77356.herokuapp.com/api/citas';
         const respuesta = await fetch(url, {
             method: 'POST',
             body: datos
@@ -325,7 +327,7 @@ async function reservarCita() {
         const resultado = await respuesta.json();
         console.log(resultado.resultado);
 
-        exito();       
+        //exito();       
 
     } catch (error) {
         Toast.fire({

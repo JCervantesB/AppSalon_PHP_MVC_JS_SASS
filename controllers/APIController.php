@@ -29,13 +29,13 @@ class APIController {
             ];
 
             $citaServicio = new CitaServicio($args);
+           
             $citaServicio->guardar();
         }
         // Retornamos una respuesta
         $respuesta = [
             'servicios' => $resultado
         ];
-
         echo json_encode($respuesta);
     }
 
