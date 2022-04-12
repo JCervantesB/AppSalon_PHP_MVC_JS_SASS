@@ -72,8 +72,9 @@ class ActiveRecord {
 
     // Sanitizar los datos antes de guardarlos en la BD
     public function sanitizarAtributos() {
-        $atributos = $this->atributos();
         $sanitizado = [];
+        $atributos = $this->atributos();
+        var_dump($atributos);
         foreach($atributos as $key => $value ) {
             $sanitizado[$key] = self::$db->escape_string($value);
         }

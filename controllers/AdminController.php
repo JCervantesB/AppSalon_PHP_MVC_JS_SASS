@@ -7,7 +7,10 @@ use MVC\Router;
 
 class AdminController {
     public static function index(Router $router) {
-        //session_start();
+        //comprobar si existe session_start() y si no es asi, iniciarlo
+        if(!isset($_SESSION)){
+            session_start();
+        }
 
         isAdmin();
 

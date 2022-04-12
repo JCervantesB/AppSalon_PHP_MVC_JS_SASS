@@ -28,7 +28,7 @@ class Router
 
         // $auth = $_SESSION['login'] ?? null;
 
-        if ($_SERVER['PATH_INFO']) {
+        if (isset($_SERVER['PATH_INFO'])) {
             $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         } else {
             $currentUrl = $_SERVER['REQUEST_URI'] === '' ? '/' : $_SERVER['REQUEST_URI'];

@@ -200,7 +200,7 @@ class LoginController {
             // Modificar a usuario confirmado.
             $usuario->confirmado = "1";
             // Elimnar el token confirmado
-            $usuario->token = null;
+            $usuario->token = '';
             // Guardar cambios en la base de datos
             $usuario->guardar();
             // Añadir mensaje de alerta

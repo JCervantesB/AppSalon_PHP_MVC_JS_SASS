@@ -15,6 +15,3 @@ if (!$db) {
     echo "error de depuración: " . mysqli_connect_error();
     exit;
 }
-
-/* cambiar el conjunto de caracteres a utf8 */
-

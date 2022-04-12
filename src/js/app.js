@@ -108,11 +108,7 @@ function paginaSiguiente() {
 
 async function consultarAPI() {
     try {
-<<<<<<< HEAD
-        const url = 'https://mighty-fjord-77356.herokuapp.com/api/servicios';
-=======
         const url = 'https://localhost/api/servicios';
->>>>>>> e35cfa25c8b7b0d54a6117c14442fedba453d91f
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         mostrarServicios(servicios);
@@ -196,6 +192,7 @@ function seleccionarHora() {
         const horaCita = e.target.value;
         const hora = horaCita.split(":")[0];
         if(hora < 10 || hora > 18) {
+            console.log(horaCita);
             e.target.value = '';
             mostrarAlerta('Hora no valida', 'error', '.formulario');
         } else {
@@ -322,11 +319,7 @@ async function reservarCita() {
 
     try {
         // Peticion hacia la API
-<<<<<<< HEAD
-        const url = 'https://mighty-fjord-77356.herokuapp.com/api/citas';
-=======
         const url = 'https://localhost/api/citas';
->>>>>>> e35cfa25c8b7b0d54a6117c14442fedba453d91f
         const respuesta = await fetch(url, {
             method: 'POST',
             body: datos
