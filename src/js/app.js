@@ -108,7 +108,7 @@ function paginaSiguiente() {
 
 async function consultarAPI() {
     try {
-        const url = 'https://localhost/api/servicios';
+        const url = 'http://localhost:3300/api/servicios';
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         mostrarServicios(servicios);
@@ -192,7 +192,6 @@ function seleccionarHora() {
         const horaCita = e.target.value;
         const hora = horaCita.split(":")[0];
         if(hora < 10 || hora > 18) {
-            console.log(horaCita);
             e.target.value = '';
             mostrarAlerta('Hora no valida', 'error', '.formulario');
         } else {
@@ -319,16 +318,16 @@ async function reservarCita() {
 
     try {
         // Peticion hacia la API
-        const url = 'https://localhost/api/citas';
+        const url = 'http://localhost:3300/api/citas';
         const respuesta = await fetch(url, {
             method: 'POST',
             body: datos
         });
     
         const resultado = await respuesta.json();
-        //console.log(resultado);
+        console.log(resultado);
 
-        //exito();       
+        exito();       
 
     } catch (error) {
         Toast.fire({

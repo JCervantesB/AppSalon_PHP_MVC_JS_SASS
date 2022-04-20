@@ -30,6 +30,7 @@ class ServicioController {
             $alertas = $servicio->validar();
 
             if(empty($alertas)) {
+                debuguear($servicio);
                 
                 $servicio->guardar();
                 header('Location: /servicios');
@@ -48,7 +49,6 @@ class ServicioController {
     public static function actualizar(Router $router) {
         // session_start();
         isAdmin();
-        debuguear($_GET);
         if(!is_numeric($_GET['id'])) return;
 
         $servicio = Servicio::find($_GET['id']);
