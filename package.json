@@ -1,12 +1,12 @@
 {
   "name": "app-salon-php-mvc-sass-s",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Curso Desarrollo Web Completo",
+  "main": "gulpfile.js",
   "scripts": {
-    "gulp": "gulp"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Juan De La Torre",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.13",
@@ -26,8 +26,5 @@
     "gulp-webp": "^4.0.1",
     "sass": "^1.41.1",
     "terser": "^5.3.8"
-  },
-  "dependencies": {
-    "sweetalert": "^2.1.2"
   }
 }

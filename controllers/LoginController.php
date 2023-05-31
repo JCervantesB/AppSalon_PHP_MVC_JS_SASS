@@ -121,7 +121,7 @@ class LoginController {
                 $usuario->password = null;
                 $usuario->password = $password->password;
                 $usuario->hashPassword();
-                $usuario->token = null;
+                $usuario->token = '';
                 $resultado = $usuario->guardar();
                 
                 if($resultado) {

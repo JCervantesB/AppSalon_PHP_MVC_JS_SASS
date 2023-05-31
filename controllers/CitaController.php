@@ -7,7 +7,7 @@ use MVC\Router;
 class CitaController {
     public static function index(Router $router) {
 
-        //session_start();
+        isSession();
         isAuth();
         
         $router->render('cita/index', [

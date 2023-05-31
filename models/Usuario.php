@@ -51,6 +51,10 @@ class Usuario extends ActiveRecord {
         if(!$this->telefono) {
             self::$alertas['error'][] = 'El Teléfono es Obligatorio';
         }
+        // validar que sea un numero de telefono valido de 10 digitos
+        if(!preg_match('/^[0-9]{10}$/', $this->telefono)) {
+            self::$alertas['error'][] = 'El Teléfono debe contener 10 digitos';
+        }
 
         return self::$alertas;
     }
